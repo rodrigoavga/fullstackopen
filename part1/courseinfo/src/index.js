@@ -20,8 +20,15 @@ const Content = (props) => {
 	)
 }
 const Total = (props) => {
+	let totalExercises = 0;
+	const total = props.parts.reduce((accumulated, current) => {
+	  if(accumulated != undefined){
+		  totalExercises += accumulated.exercises;
+	  }
+	  totalExercises += current.exercises;
+	})
 	return (
-		<p>Number of exercises {props.parts.length}</p>
+		<p>Number of exercises {totalExercises}</p>
 	)
 }
 
